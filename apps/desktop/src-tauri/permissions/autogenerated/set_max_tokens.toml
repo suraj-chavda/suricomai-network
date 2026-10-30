@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-set-max-tokens"
+description = "Enables the set_max_tokens command without any pre-configured scope."
+commands.allow = ["set_max_tokens"]
+
+[[permission]]
+identifier = "deny-set-max-tokens"
+description = "Denies the set_max_tokens command without any pre-configured scope."
+commands.deny = ["set_max_tokens"]

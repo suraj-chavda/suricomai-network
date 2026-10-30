@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-set-temperature"
+description = "Enables the set_temperature command without any pre-configured scope."
+commands.allow = ["set_temperature"]
+
+[[permission]]
+identifier = "deny-set-temperature"
+description = "Denies the set_temperature command without any pre-configured scope."
+commands.deny = ["set_temperature"]

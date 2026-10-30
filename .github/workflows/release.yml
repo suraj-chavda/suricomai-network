@@ -1,0 +1,63 @@
+name: release
+# Builds installers for every system and attaches them, with checksums, to a DRAFT release.
+# Nothing is published until the owner reviews the draft and publishes it by hand.
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  installers:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: macos-latest, target: aarch64-apple-darwin, label: macos-arm64 }
+          - { os: macos-15-intel, target: x86_64-apple-darwin, label: macos-x64 }
+          - { os: ubuntu-22.04, target: x86_64-unknown-linux-gnu, label: linux-x64 }
+          - { os: windows-latest, target: x86_64-pc-windows-msvc, label: windows-x64 }
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Linux system libraries
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y libwebkit2gtk-4.1-dev libgtk-3-dev libayatana-appindicator3-dev librsvg2-dev patchelf
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+      - name: Tauri CLI
+        run: cargo install tauri-cli --version "^2" --locked
+      - name: Build installers
+        working-directory: apps/desktop/src-tauri
+        run: cargo tauri build --target ${{ matrix.target }} -- --locked
+      - name: Collect and checksum
+        shell: bash
+        run: |
+          mkdir -p dist
+          B=apps/desktop/src-tauri/target/${{ matrix.target }}/release/bundle
+          find "$B" -type f \( -name '*.dmg' -o -name '*.AppImage' -o -name '*.deb' -o -name '*.rpm' -o -name '*-setup.exe' -o -name '*.msi' \) -exec cp {} dist/ \;
+          cd dist
+          for f in *; do mv "$f" "SuriComAI-dev-${{ matrix.label }}-$f"; done
+          if command -v sha256sum >/dev/null; then sha256sum * > SHA256SUMS-${{ matrix.label }}.txt; else shasum -a 256 * > SHA256SUMS-${{ matrix.label }}.txt; fi
+          ls -l
+      - uses: actions/upload-artifact@v4
+        with:
+          name: installers-${{ matrix.label }}
+          path: dist/*
+  draft:
+    needs: installers
+    if: startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+      - name: Create the draft release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ github.ref_name }}" dist/* --repo "${{ github.repository }}" --draft --prerelease \
+            --title "SuriComAI ${{ github.ref_name }} (development build)" \
+            --notes "Development build. Answers are not private, and there is no wallet, payment or token. The installers are not code-signed, so macOS and Windows will warn before opening them. Verify each file against its SHA256SUMS file. Proprietary software: use requires the owner's written permission."

@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-last-proof"
+description = "Enables the last_proof command without any pre-configured scope."
+commands.allow = ["last_proof"]
+
+[[permission]]
+identifier = "deny-last-proof"
+description = "Denies the last_proof command without any pre-configured scope."
+commands.deny = ["last_proof"]

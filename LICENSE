@@ -1,0 +1,75 @@
+SuriComAI Network: Proprietary License
+
+Copyright (c) 2026 SuriComAI. All rights reserved.
+
+1. No license is granted.
+
+   This software, its source code, documentation, specifications, test vectors,
+   designs, diagrams, logos and name, and everything else in this repository
+   (together, the "Software"), are the exclusive property of SuriComAI (the
+   "Owner"). Except as stated in sections 3 and 4, no license or other right is
+   granted to you, whether expressly, by implication, by estoppel or otherwise.
+   Making the Software visible on a website, in a repository or anywhere else does
+   not grant any right to use it.
+
+2. What you may not do without the Owner's prior written permission.
+
+   (a) Use, run, compile, test, deploy or operate the Software, in whole or in
+       part, for any purpose, including personal, educational, research, internal
+       business and commercial purposes.
+   (b) Copy, reproduce, mirror or host the Software.
+   (c) Modify, adapt, translate or create derivative works of the Software,
+       including forks.
+   (d) Distribute, publish, sublicense, sell, rent, lend or otherwise make the
+       Software available to anyone else.
+   (e) Rename or rebrand the Software or any derivative of it, or present either
+       as your own work or as connected with the Owner.
+   (f) Remove or change any copyright, license or attribution notice.
+   (g) Use the Software, or what you learn from its source code, to build, train
+       or offer a competing product or service.
+
+3. Permission to read.
+
+   You may view the source code on the website where the Owner publishes it, only
+   to read and review it. The terms of that website may separately allow viewing
+   and forking within that website. Those terms give you no right to use the
+   Software in any other way.
+
+4. Permission by written agreement.
+
+   Permission to evaluate, test, run a node on a network the Owner operates,
+   audit, contribute to, license, purchase or take over the Software is available
+   only under a written agreement signed by the Owner. To ask, see "Contact".
+
+5. Trademarks.
+
+   "SuriComAI", "SuriComAI Network" and the logos are marks of the Owner. No right
+   to use them is granted, including in the name of a fork or a derivative.
+
+6. Third-party components.
+
+   The Software depends on third-party components that are licensed under their
+   own terms. Those terms apply to those components only. Nothing in this license
+   changes them.
+
+7. Contributions.
+
+   The Owner is not accepting outside contributions. Do not send code.
+
+8. Enforcement.
+
+   Any use of the Software that this license does not permit is infringement. The
+   Owner may take action against it, including notices to hosting platforms and
+   legal proceedings.
+
+9. No warranty.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+   PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE OWNER BE LIABLE FOR ANY
+   CLAIM, DAMAGES OR OTHER LIABILITY ARISING FROM THE SOFTWARE OR ITS USE.
+
+Contact
+
+   Licensing, purchase, takeover and permission requests: contact the Owner
+   through https://github.com/suraj-chavda

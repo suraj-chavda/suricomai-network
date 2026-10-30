@@ -1,0 +1,18 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "The one window may call the app commands and nothing else: no files, no shell, no network, no events.",
+  "windows": ["main"],
+  "permissions": [
+    "allow-app-info",
+    "allow-status",
+    "allow-models",
+    "allow-transcript",
+    "allow-ask",
+    "allow-select-model",
+    "allow-set-temperature",
+    "allow-set-max-tokens",
+    "allow-clear-chat",
+    "allow-last-proof"
+  ]
+}

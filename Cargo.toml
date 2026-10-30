@@ -1,0 +1,9 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/suricomai-attestor",
+    "crates/suricomai-envelope",
+    "crates/suricomai-escrow",
+    "crates/suricomai-runtime",
+    "crates/suricomai-testnet",
+]

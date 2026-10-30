@@ -1,0 +1,16 @@
+[package]
+name = "suricomai-attestor"
+version = "0.1.0"
+edition = "2021"
+publish = false
+license-file = "../../LICENSE"
+description = "Turns a verified proof into the committee signature that SuriComAIEscrow accepts"
+
+[dependencies]
+k256 = { version = "0.13", default-features = false, features = ["ecdsa", "std"] }
+sha3 = "0.10"
+suricomai-envelope = { path = "../suricomai-envelope" }
+zeroize = "1.8"
+
+[dev-dependencies]
+suricomai-envelope = { path = "../suricomai-envelope", features = ["lab"] }

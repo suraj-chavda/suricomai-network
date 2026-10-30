@@ -1,0 +1,13 @@
+[package]
+name = "suricomai-testnet"
+version = "0.1.0"
+edition = "2021"
+publish = false
+license-file = "../../LICENSE"
+description = "Local multi-role SuriComAI testnet with mock fees. Not a chain and not a TEE."
+
+[dependencies]
+rand = "0.8"
+suricomai-envelope = { path = "../suricomai-envelope" }
+suricomai-escrow = { path = "../suricomai-escrow" }
+suricomai-runtime = { path = "../suricomai-runtime", features = ["lab"] }

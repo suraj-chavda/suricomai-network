@@ -1,0 +1,23 @@
+# SuriComAI
+
+> SuriComAI is a proprietary prototype, written in Rust, of a decentralized network for private AI inference. It is not live: there is no public network, no wallet, no paid jobs, and no token. The repository is a reference implementation you can run locally.
+
+Status: prototype, not production. Nothing is private against the machine running it, and the escrow contract is unaudited and not deployed. Do not use it with real secrets or real funds.
+
+## What exists
+
+- Sealed prompt envelope using HPKE with X-Wing (ML-KEM-768 + X25519), receipts, and proof audit
+- Job escrow rules, a settlement simulator, and a reference Solidity escrow contract (unaudited, local test chain only)
+- Signed model manifests and approvals that expire and can be revoked
+- A local reference chat client and two independent proof verifiers (Rust and Python) sharing test vectors
+
+## What does not exist yet
+
+- Hardware-backed private tier (Intel TDX, AMD SEV-SNP)
+- Separate worker, relay, and attestor processes on a network
+- A deployed and audited contract, a wallet, real payments, a public network, a token
+
+## Links
+
+- [README](README.md): overview, warnings, quick start, FAQ
+- [License](LICENSE): proprietary, all rights reserved. No use, copying, modification or redistribution without written permission

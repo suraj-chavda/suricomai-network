@@ -1,0 +1,77 @@
+# SuriComAI: public git: README, code, vectors, assets only. All planning/wire docs stay local.
+
+# --- Cursor / IDE (local only) ---
+.cursor/
+
+# --- Internal engineering & protocol docs (never push) ---
+SPEC.md
+RUN.md
+AGENTS.md
+TASKS.md
+PLAN.md
+TARGET_PRODUCT.md
+CLAUDE.md
+.claude/
+docs/internal/
+internal/
+*.local.md
+
+# --- Secrets & keys ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# --- Rust ---
+/target/
+**/*.rs.bk
+
+# --- Python verifiers ---
+verifiers/python/.venv/
+**/.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- Local model weights (download per machine) ---
+/models/*
+!/models/.gitkeep
+*.gguf
+*.safetensors
+*.onnx
+# The small bundled test model ships with the repository.
+!/models/suricomai-mini-chat.gguf
+!/models/suricomai-mini-chat.tokenizer.json
+
+# --- OS & editor noise ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
+
+# --- Logs & temp ---
+*.log
+tmp/
+.cache/
+coverage/
+*.profraw
+
+# --- OS extras ---
+._*
+.AppleDouble
+
+# --- Solidity (Foundry) build output ---
+contracts/out/
+contracts/cache/
+contracts/lcov.info
+contracts/broadcast/
+
+# Desktop app build output
+apps/desktop/src-tauri/target/
+apps/desktop/src-tauri/gen/

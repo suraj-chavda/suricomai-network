@@ -1,0 +1,29 @@
+[package]
+name = "suricomai-runtime"
+version = "0.1.0"
+edition = "2021"
+publish = false
+license-file = "../../LICENSE"
+description = "Local SuriComAI executor: pinned tiny model, sealed jobs, lab quote only"
+
+[features]
+# The development node: software quote, built-in test model, public development approver key.
+# A build without it does not compile on purpose, because no hardware verifier exists yet.
+lab = ["suricomai-envelope/lab"]
+
+[dependencies]
+blake3 = "1.5"
+candle-core = "0.9"
+ed25519-dalek = { version = "2.1", features = ["zeroize"] }
+candle-transformers = "0.9"
+rand = "0.8"
+rustyline = "15"
+tokenizers = { version = "0.21", default-features = false, features = ["fancy-regex"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+snow = { version = "=0.10.0", default-features = false, features = ["default-resolver", "default-resolver-crypto"] }
+suricomai-envelope = { path = "../suricomai-envelope" }
+zeroize = "1.8"
+
+[dev-dependencies]
+suricomai-runtime = { path = ".", features = ["lab"] }

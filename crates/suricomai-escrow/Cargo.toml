@@ -1,0 +1,9 @@
+[package]
+name = "suricomai-escrow"
+version = "0.1.0"
+edition = "2021"
+publish = false
+license-file = "../../LICENSE"
+description = "Typed job escrow. No mint, no chain, and no prompt."
+
+[dependencies]
